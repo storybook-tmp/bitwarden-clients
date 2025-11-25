@@ -1,8 +1,12 @@
+// This file has been automatically migrated to valid ESM format by Storybook.
+import { createRequire } from "node:module";
 import { dirname, join } from "path";
 
 import { StorybookConfig } from "@storybook/angular";
 import remarkGfm from "remark-gfm";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
+
+const require = createRequire(import.meta.url);
 
 const config: StorybookConfig = {
   stories: [
@@ -28,15 +32,13 @@ const config: StorybookConfig = {
   ],
   addons: [
     getAbsolutePath("@storybook/addon-links"),
-    getAbsolutePath("@storybook/addon-essentials"),
     getAbsolutePath("@storybook/addon-a11y"),
     getAbsolutePath("@storybook/addon-designs"),
-    getAbsolutePath("@storybook/addon-interactions"),
     getAbsolutePath("@storybook/addon-themes"),
     {
       // @storybook/addon-docs is part of @storybook/addon-essentials
-      // eslint-disable-next-line storybook/no-uninstalled-addons
-      name: "@storybook/addon-docs",
+
+      name: getAbsolutePath("@storybook/addon-docs"),
       options: {
         mdxPluginOptions: {
           mdxCompileOptions: {
@@ -61,6 +63,13 @@ const config: StorybookConfig = {
     if (config.resolve) {
       config.resolve.plugins = [new TsconfigPathsPlugin()] as any;
     }
+    config.resolve = {
+      ...config.resolve,
+      fallback: {
+        ...config.resolve?.fallback,
+        path: require.resolve("path-browserify"),
+      },
+    };
     return config;
   },
   docs: {},

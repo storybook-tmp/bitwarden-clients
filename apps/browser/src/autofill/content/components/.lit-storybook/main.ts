@@ -2,7 +2,7 @@ import { createRequire } from "module";
 import { dirname, join, resolve } from "path";
 import { fileURLToPath } from "url";
 
-import type { StorybookConfig } from "@storybook/web-components-webpack5";
+import type { StorybookConfig } from "@storybook/web-components-vite";
 import remarkGfm from "remark-gfm";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 
@@ -34,7 +34,7 @@ const config: StorybookConfig = {
     },
   ],
   framework: {
-    name: getAbsolutePath("@storybook/web-components-webpack5"),
+    name: getAbsolutePath("@storybook/web-components-vite"),
     options: {
       legacyRootApi: true,
     },
