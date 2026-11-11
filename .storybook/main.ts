@@ -38,6 +38,12 @@ const config: StorybookConfig = {
     "../bitwarden_license/bit-browser/src/**/*.stories.@(js|jsx|ts|tsx)",
     "../libs/angular/src/**/*.stories.@(js|jsx|ts|tsx)",
   ],
+  storySorts: [
+    {
+      method: "alphabetical",
+      order: ["Documentation", ["Introduction", "Colors", "Icons"], "Component Library"],
+    },
+  ],
   addons: [
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-a11y"),
