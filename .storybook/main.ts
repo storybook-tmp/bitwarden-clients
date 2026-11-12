@@ -60,6 +60,12 @@ const config: StorybookConfig = {
     name: getAbsolutePath("@storybook/angular"),
     options: {},
   },
+  storySorts: [
+    {
+      method: "alphabetical",
+      order: ["Documentation", ["Introduction", "Colors", "Icons"], "Component Library"],
+    },
+  ],
   core: {
     disableTelemetry: true,
   },

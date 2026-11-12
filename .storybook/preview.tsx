@@ -51,12 +51,6 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
-    options: {
-      storySort: {
-        method: "alphabetical",
-        order: ["Documentation", ["Introduction", "Colors", "Icons"], "Component Library"],
-      },
-    },
     docs: {
       source: {
         type: "dynamic",
