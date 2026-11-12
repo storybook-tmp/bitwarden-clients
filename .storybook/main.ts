@@ -78,6 +78,12 @@ const config: StorybookConfig = {
     return config;
   },
   docs: {},
+  storySorts: [
+    {
+      method: "alphabetical",
+      order: ["Documentation", ["Introduction", "Colors", "Icons"], "Component Library"],
+    },
+  ],
   staticDirs: [
     "../apps/web/src/images",
     // Component templates reference images via relative paths like `../../../images/foo.png`,
